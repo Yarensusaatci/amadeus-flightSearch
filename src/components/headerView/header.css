@@ -1,0 +1,20 @@
+.header {
+    margin: 5% 5%;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    background-color: #61DBFB;
+}
+
+.header__logo {
+    width: 492px;
+    height: 200px;
+}
+
+.header__title {
+    color: orchid;
+    font-size: 30px;
+    font-style: italic;
+    margin-left: 50px;
+    margin-right: 110px;
+}
