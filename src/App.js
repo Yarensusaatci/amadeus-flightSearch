@@ -13,6 +13,7 @@ function App() {
     fetchAirports();
   }, []);
 
+  
   return (
     <BrowserRouter>
       <Routes>
