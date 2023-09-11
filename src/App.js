@@ -1,35 +1,26 @@
-import React, { Component } from 'react';
+// Yaren Su Saatçı
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import FlightList from "./pages/FlightList";
 
-import './App.css';
-import Header from './components/headerView/Header';
-import Search from './components/searchView/Search';
-import FlightResult from './components/resultView/FlightsResult';
+import { useAirportsContext } from "./context/AirportHook";
+import { useEffect } from "react";
 
-class App extends Component {
+function App() {
+  const { fetchAirports } = useAirportsContext();
 
-  constructor(props){
-    super(props);
-    this.state={
-      data:""
-    }
-  }
+  useEffect(() => {
+    fetchAirports();
+  }, []);
 
-  formChildSearch(params) {
-  this.setState({
-    data : params
-  })
-}
-  render() {
-    return (
-      <div className="app">
-        <Header/>
-        <section className="app__content">
-        <Search callback={this.formChildSearch.bind(this)}/>
-        <FlightResult data={this.state.data}/>
-        </section>
-      </div>
-    );
-  }
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/list" element={<FlightList />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
